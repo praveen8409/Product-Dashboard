@@ -1,0 +1,30 @@
+.dashboard {
+    padding: 20px;
+  }
+  
+  .dashboard nav {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard button {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .dashboard button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 600px) {
+    .dashboard button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

@@ -1,0 +1,17 @@
+.chart-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  .chart-container h2 {
+    text-align: center;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 600px) {
+    .chart-container {
+      width: 100%;
+    }
+  }
+  

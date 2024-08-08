@@ -1,0 +1,82 @@
+/* SalesComparisonDashboard.css */
+
+/* Container for the whole dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for buttons */
+  .dashboard-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between buttons */
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .dashboard-buttons button:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+  }
+  
+  .dashboard-buttons button:active {
+    transform: scale(0.98); /* Slightly shrink on click */
+  }
+  
+  /* Styling for date pickers */
+  .date-picker-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between date pickers */
+    margin-bottom: 20px;
+  }
+  
+  .date-picker-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .date-picker-container label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  /* Ensure charts and table are responsive */
+  .dashboard-chart, .dashboard-table {
+    width: 100%;
+    max-width: 800px; /* Limit max width for larger screens */
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .dashboard-buttons {
+      flex-direction: column;
+    }
+  
+    .date-picker-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .date-picker-container div {
+      width: 100%;
+    }
+  }
+  

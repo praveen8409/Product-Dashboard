@@ -1,9 +1,9 @@
-//  src/charts/CategoryPieChart.js
+// src/charts/CategoryPieChart.js
 import React, { useRef, useMemo, useEffect } from 'react';
 import './PieChart.css';
-import { Chart, ArcElement } from 'chart.js';
+import { Chart, ArcElement, PieController, Tooltip, Legend } from 'chart.js';
 
-Chart.register(ArcElement);
+Chart.register(ArcElement, PieController, Tooltip, Legend);
 
 function CategoryPieChart({ data }) {
   const chartRef = useRef(null);
@@ -18,7 +18,10 @@ function CategoryPieChart({ data }) {
         {
           label: 'Sales Amount',
           data: salesAmounts,
-          backgroundColor: categories.map(() => `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.6)`),
+          backgroundColor: categories.map(
+            () =>
+              `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.6)`
+          ),
         },
       ],
     };
@@ -41,9 +44,12 @@ function CategoryPieChart({ data }) {
   }, [chartData]);
 
   return (
-    <div className="chart-container">
+    <div className="chart-container" style={{ textAlign: 'center' }}>
       <h2>Category Sales Pie Chart</h2>
+      <div style={{ position: 'relative', height: '400px', display: 'inline-block' }}>
       <canvas ref={chartRef} />
+      </div>
+      
     </div>
   );
 }

@@ -1,11 +1,10 @@
 // src/charts/ProductComparisonPieChart.js
-
 import React, { useEffect, useRef, useMemo, useState } from 'react';
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart, ArcElement, PieController, Tooltip, Legend } from 'chart.js';
 import { fetchSalesComparisonData } from '../services/api';
-import './PieChart.css'
+// import './PieChart.css';
 
-Chart.register(ArcElement, Tooltip, Legend);
+Chart.register(ArcElement, PieController, Tooltip, Legend);
 
 function ProductComparisonPieChart({ startDate, endDate }) {
   const [data, setData] = useState([]);
@@ -56,6 +55,10 @@ function ProductComparisonPieChart({ startDate, endDate }) {
       chartInstance = new Chart(chartRef.current, {
         type: 'pie',
         data: chartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+        },
       });
     }
 
@@ -69,10 +72,11 @@ function ProductComparisonPieChart({ startDate, endDate }) {
   return (
     <div className="chart-container">
       <h2>Product Sales Comparison (Pie Chart)</h2>
-      <canvas ref={chartRef} />
+      <div style={{ position: 'relative', height: '400px' }}>
+        <canvas ref={chartRef} />
+      </div>
     </div>
   );
 }
 
 export default ProductComparisonPieChart;
-

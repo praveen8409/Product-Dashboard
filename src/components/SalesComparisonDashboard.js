@@ -4,9 +4,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ProductComparisonBarChart from '../charts/ProductComparisonBarChart';
 import CategoryComparisonBarChart from '../charts/CategoryComparisonBarChart';
 import ProductComparisonPieChart from '../charts/ProductComparisonPieChart';
-import CategoryComparisonPieChart from '../charts/CategoryComparisonPieChart.js';
+import CategoryComparisonPieChart from '../charts/CategoryComparisonPieChart';
 import SalesComparisonTable from '../tables/SalesComparisonTable';
-import './Dashboard1.css';
+import './SalesComparisonDashboard.css';
 
 function SalesComparisonDashboard() {
   const [startDate, setStartDate] = useState(new Date());
@@ -18,19 +18,19 @@ function SalesComparisonDashboard() {
   };
 
   return (
-    <div>
+    <div className="dashboard-container">
       <h1>Sales Comparison Between Dates</h1>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>
+      <div className="date-picker-container">
+        <div style={{ marginBottom: '10px' }}>
           <label>Start Date:</label>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <label>End Date:</label>
           <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
         </div>
       </div>
-      <div style={{ marginTop: '20px', marginBottom: '20px', textAlign: 'center' }} className="dashboard" >
+      <div className="dashboard-buttons">
         <button onClick={() => handleViewChange('productBar')}>Product Bar Chart</button>
         <button onClick={() => handleViewChange('productPie')}>Product Pie Chart</button>
         <button onClick={() => handleViewChange('categoryBar')}>Category Bar Chart</button>

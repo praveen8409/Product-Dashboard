@@ -1,10 +1,9 @@
-
-//  src/charts/PieChart.js
+// src/charts/PieChart.js
 import React, { useRef, useMemo, useEffect } from 'react';
+import { Chart, ArcElement, PieController, Tooltip, Legend } from 'chart.js';
 import './PieChart.css';
-import { Chart, ArcElement } from 'chart.js';
 
-Chart.register(ArcElement);
+Chart.register(ArcElement, PieController, Tooltip, Legend);
 
 function PieChart({ data }) {
   const chartRef = useRef(null);
@@ -19,7 +18,10 @@ function PieChart({ data }) {
         {
           label: 'Sales Amount',
           data: salesAmounts,
-          backgroundColor: productNames.map(() => `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.6)`),
+          backgroundColor: productNames.map(
+            () =>
+              `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.6)`
+          ),
         },
       ],
     };
@@ -42,11 +44,14 @@ function PieChart({ data }) {
   }, [chartData]);
 
   return (
-    <div className="chart-container">
+    <div className="chart-container" style={{ textAlign: 'center' }}>
       <h2>Product Sales Pie Chart</h2>
-      <canvas ref={chartRef} />
+      <div style={{ position: 'relative', height: '400px', display: 'inline-block' }}>
+        <canvas ref={chartRef} />
+      </div>
     </div>
   );
+  
 }
 
 export default PieChart;

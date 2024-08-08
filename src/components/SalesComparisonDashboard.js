@@ -8,6 +8,7 @@ import CategoryComparisonPieChart from '../charts/CategoryComparisonPieChart';
 import SalesComparisonTable from '../tables/SalesComparisonTable';
 import './SalesComparisonDashboard.css';
 
+
 function SalesComparisonDashboard() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -20,12 +21,12 @@ function SalesComparisonDashboard() {
   return (
     <div className="dashboard-container">
       <h1>Sales Comparison Between Dates</h1>
-      <div className="date-picker-container">
-        <div style={{ marginBottom: '10px' }}>
+      <div style={{ display: "flex" }}>
+        <div style={{ marginBottom: '10px', padding:"10px" }}>
           <label>Start Date:</label>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '10px' ,padding:"10px" }}>
           <label>End Date:</label>
           <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
         </div>
